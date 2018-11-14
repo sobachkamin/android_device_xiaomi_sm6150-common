@@ -123,6 +123,7 @@ debug.sf.enable_egl_image_tracker=1
 debug.sf.enable_hwc_vds=1
 debug.sf.latch_unsignaled=1
 vendor.display.disable_rotator_downscale=1
+persist.sys.sf.color_saturation=1.0
 
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
