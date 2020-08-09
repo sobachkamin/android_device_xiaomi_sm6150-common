@@ -263,6 +263,10 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 PRODUCT_PACKAGES += \
     ParanoidDoze
 
+# Platform
+MSMSTEPPE := sm6150
+TARGET_BOARD_PLATFORM := $(MSMSTEPPE)
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service
