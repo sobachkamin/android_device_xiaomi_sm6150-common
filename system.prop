@@ -14,6 +14,9 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.line
 # Charger
 ro.charger.enable_suspend=true
 
+# Graphics
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.sm6150.api30
+
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true
