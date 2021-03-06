@@ -150,10 +150,6 @@ PRODUCT_PACKAGES += \
     FM2 \
     qcom.fmradio
 
-# Fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
-
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1-impl-qti \
