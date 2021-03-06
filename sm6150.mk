@@ -252,9 +252,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power-service
 
-# Product characteristics
-PRODUCT_CHARACTERISTICS := nosdcard
-
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
