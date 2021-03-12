@@ -19,6 +19,7 @@
 #include "FingerprintInscreen.h"
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <fstream>
 #include <cmath>
 #include <thread>
@@ -36,10 +37,6 @@
 #define TOUCH_FOD_ENABLE 10
 
 #define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui"
-
-#define FOD_SENSOR_X 445
-#define FOD_SENSOR_Y 1931
-#define FOD_SENSOR_SIZE 190
 
 namespace {
 
@@ -72,6 +69,8 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
+using android::base::GetProperty;
+
 FingerprintInscreen::FingerprintInscreen() {
     touchFeatureService = ITouchFeature::getService();
     xiaomiFingerprintService = IXiaomiFingerprint::getService();
@@ -103,15 +102,15 @@ FingerprintInscreen::FingerprintInscreen() {
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
-    return FOD_SENSOR_X;
+    return std::stoi(GetProperty("persist.vendor.sys.fp.fod.location.X", "0"));
 }
 
 Return<int32_t> FingerprintInscreen::getPositionY() {
-    return FOD_SENSOR_Y;
+    return std::stoi(GetProperty("persist.vendor.sys.fp.fod.location.Y", "0"));
 }
 
 Return<int32_t> FingerprintInscreen::getSize() {
-    return FOD_SENSOR_SIZE;
+    return std::stoi(GetProperty("persist.vendor.sys.fp.fod.size", "0"));
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
