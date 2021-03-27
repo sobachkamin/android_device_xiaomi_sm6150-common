@@ -159,3 +159,6 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # Touchscreen device
 /dev/input/event*         0660   system     input
+
+# IR spi node
+/dev/ir_spi               0660   system     system
