@@ -93,15 +93,6 @@ fi
 case "$soc_id" in
         "355" | "369" | "377" | "380" | "384" )
 
-    target_type=`getprop ro.hardware.type`
-    if [ "$target_type" == "automotive" ]; then
-        # update frequencies
-        configure_sku_parameters
-        sku_identified=`getprop vendor.sku_identified`
-    else
-        sku_identified=0
-    fi
-
     # Core control parameters on silver
     echo 0 0 0 0 1 1 > /sys/devices/system/cpu/cpu0/core_ctl/not_preferred
     echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
@@ -129,18 +120,14 @@ case "$soc_id" in
     echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
     echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
     echo 1209600 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
-    if [ $sku_identified != 1 ]; then
-        echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    fi
+    echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
     # configure governor settings for big cluster
     echo "schedutil" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
     echo 0 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us
     echo 0 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us
     echo 1209600 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq
-    if [ $sku_identified != 1 ]; then
-        echo 768000 > /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
-    fi
+    echo 768000 > /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
 
     # sched_load_boost as -6 is equivalent to target load as 85. It is per cpu tunable.
     echo -6 >  /sys/devices/system/cpu/cpu6/sched_load_boost
