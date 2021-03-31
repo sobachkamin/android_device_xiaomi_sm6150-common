@@ -1,6 +1,5 @@
 # Audio
 audio.soundtrigger.debug.          u:object_r:vendor_default_prop:s0
-elliptic.ultrasound.               u:object_r:vendor_default_prop:s0
 
 # Camera
 vendor.camera.                     u:object_r:vendor_camera_prop:s0
@@ -21,7 +20,6 @@ vendor.fps_hal.                    u:object_r:vendor_fp_prop:s0
 
 # Sensors
 persist.sensor.                    u:object_r:persist_sensors_prop:s0
-invn.hal                           u:object_r:vendor_sensors_prop:s0
 
 # Xiaomi thermal daemon
 vendor.sys.thermal.                u:object_r:vendor_thermal_normal_prop:s0
