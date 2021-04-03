@@ -1,3 +1,5 @@
+# All unpinned blobs were pulled from Redmi/sweet_eea/sweet:11/RKQ1.200826.002/V12.0.10.0.RKFEUXM:user/release-keys
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
